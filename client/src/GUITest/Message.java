@@ -7,7 +7,7 @@
  */
 package GUITest;                                                                // package declaration.
 
-public class Message 
+public class Message
 {
     /* variable declaration block begins */
     Object payload;                                                             // Plain old superclass to ensure anything can fit in the payload.
@@ -51,20 +51,21 @@ public class Message
     }
     /* method to set Diffie-Hellman Modulus begins. */
     
-    /* method to set Diffie-Hellman Base begins. */
+    
     public int setBase(int newBase)
+    /* method to set Diffie-Hellman Base begins. */
     {
         DHBase = newBase;                                                       // set DHBase equal to passed newBase value.
         return newBase;                                                         // return newBase.
     }
     /* method to set Diffie-Hellman Base ends. */
     
-    /* method to set Diffie-Hellman Secret begins. */
     public int setSecret(int newSecretA)
+    /* method to set Diffie-Hellman Secret begins. */
+    
     {
         DHSecret = newSecretA;                                                  // set DHSecret to passed newSecretA value.
         return DHSecret;                                                        // return DHSecret.
     }
-    /* method to set Diffie-Hellman Secret ends. */
-            
+    /* method to set Diffie-Hellman Secret ends. */           
 }
