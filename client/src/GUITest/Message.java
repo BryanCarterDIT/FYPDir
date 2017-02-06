@@ -27,43 +27,43 @@ public class Message
     public Object setPayload(Object newPayload)
     /* method to set message payload begins. */
     {
-        payload = newPayload;
-        return payload;
+        payload = newPayload;                                                   // set payload equal to passed value.
+        return payload;                                                         // return payload.
     }
     /* method to set message payload ends. */
     
     public int setDiffieHellman(int newModulus, int newBase, int newSecretA)
     /* method to set Diffie-Hellman variables begins. */
     {
-        this.setModulus(newModulus);
-        this.setBase(newBase);
-        this.setSecret(newSecretA);
-        DHNumber = (DHBase ^ DHSecret) % DHModulus;
-        return DHNumber;
+        this.setModulus(newModulus);                                            // call method to setModulus.
+        this.setBase(newBase);                                                  // call method to setBase.
+        this.setSecret(newSecretA);                                             // call method to setSecret.
+        DHNumber = (DHBase ^ DHSecret) % DHModulus;                             // calculate DHNumber using "A = g^a mod p".
+        return DHNumber;                                                        // return DHNumber.
     }
     /* method to set Diffie-Hellman variables ends. */
     
     public int setModulus(int newModulus)
     /* method to set Diffie-Hellman Modulus begins. */
     {
-        DHModulus = newModulus;
-        return newModulus;
+        DHModulus = newModulus;                                                 // det DHModulus value to passed newModulus value..
+        return newModulus;                                                      // return DHModulus.
     }
     /* method to set Diffie-Hellman Modulus begins. */
     
     /* method to set Diffie-Hellman Base begins. */
     public int setBase(int newBase)
     {
-        DHBase = newBase;
-        return newBase;
+        DHBase = newBase;                                                       // set DHBase equal to passed newBase value.
+        return newBase;                                                         // return newBase.
     }
     /* method to set Diffie-Hellman Base ends. */
     
     /* method to set Diffie-Hellman Secret begins. */
     public int setSecret(int newSecretA)
     {
-        DHSecret = newSecretA;
-        return DHSecret;
+        DHSecret = newSecretA;                                                  // set DHSecret to passed newSecretA value.
+        return DHSecret;                                                        // return DHSecret.
     }
     /* method to set Diffie-Hellman Secret ends. */
             
