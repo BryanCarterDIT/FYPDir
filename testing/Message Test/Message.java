@@ -4,7 +4,7 @@
 		A basic message object to simplify passing information between endpoints.
 
  */
-package GUITest;                                                                // package declaration.
+package MessageTest;															// package declaration.
 
 public class Message
 {
@@ -15,10 +15,13 @@ public class Message
     int DHNumber;                                                               // Transmitted valuefor Diffie-Hellman.
     /* variable declaration block ends */
     
-    public Message()
+    public Message(Object initialPayload, int initialDHModulus,int initialDHBase, int initialDHNumber)
     /* class constructor for Message objects begins. */
     {
-    
+    	payload = initialPayload;
+    	DHModulus = initialDHModulus;
+    	DHBase = initialDHBase; 
+    	DHNumber = initialDHNumber;
     }
     /* class constructor for Message objects ends. */
     
@@ -30,14 +33,12 @@ public class Message
     }
     /* method to set message payload ends. */
     
-    public int setDiffieHellman(int newModulus, int newBase, int newSecretA)
+    public void setDiffieHellman(int newModulus, int newBase, int DHNumber)
     /* method to set Diffie-Hellman variables begins. */
     {
         this.setModulus(newModulus);                                            // call method to setModulus.
         this.setBase(newBase);                                                  // call method to setBase.
-        this.setSecret(newSecretA);                                             // call method to setSecret.
-        DHNumber = (DHBase ^ DHSecret) % DHModulus;                             // calculate DHNumber using "A = g^a mod p".
-        return DHNumber;                                                        // return DHNumber.
+        this.setDHNumber(DHNumber);                                             // call method to setSecret.
     }
     /* method to set Diffie-Hellman variables ends. */
     
@@ -58,12 +59,11 @@ public class Message
     }
     /* method to set Diffie-Hellman Base ends. */
     
-    public int setSecret(int newSecretA)
-    /* method to set Diffie-Hellman Secret begins. */
-    
+    public int setDHNumber(int newDHNumber)
+    /* method to set Diffie-Hellman number begins. */
     {
-        DHSecret = newSecretA;                                                  // set DHSecret to passed newSecretA value.
-        return DHSecret;                                                        // return DHSecret.
+        DHNumber = newDHNumber;													// set DHnumber equal to passed newBase value.
+        return newDHNumber;                                                     // return newDHNumber.
     }
-    /* method to set Diffie-Hellman Secret ends. */           
-}
+    /* method to set Diffie-Hellman number ends. */
+}   

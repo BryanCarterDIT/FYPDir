@@ -8,9 +8,12 @@
 	http://docs.oracle.com/javase/tutorial/networking/sockets/examples/EchoClient.java
 */
 
+package MessageTest;															// package declaration.
+
 /* import block begins */
-import java.io.*;																									// import all of java's IO functions.
-import java.net.*;																									// import all of java's networking functions.
+import java.io.*;																// import all of java's IO functions.
+import java.net.*;																// import all of java's networking functions.
+import java.util.Scanner;														// import the Command Line Scanner.		
 /* import block ends */
 
 public class EchoClient
@@ -27,10 +30,16 @@ public class EchoClient
 		/* usage checking ends */
 		
 		/* variable declaration block begins */
-		String server_IP = args[1];																					// take the IP from the args.
-		String message = args[0];																					// take message from args.
+		String server_IP = args[0];																					// take the IP from the args.
+		String message;																								// declare message string, left blank here.
 		String reply;																								// declare reply string, left blank here.
 		int serverPort = 12345;																						// port is same as server.
+		Object payload = server_IP; 
+		int DHModulus = 1;
+		int DHBase = 2; 
+		int DHNumber = 3;
+		Message outgoingMessage = new Message(payload, DHModulus, DHBase, DHNumber);																			// creates a Message object.
+		Scanner textScanner = new Scanner(System.in);																// creates a scanner object to read text input from the command line.
 		/* variable declaration block ends */
 		
 		/* trying to make a connection */
@@ -42,6 +51,9 @@ public class EchoClient
 		
 				
 			System.out.println("Connected to " + server_IP + " on port " + serverPort);								// tell us we've connected.
+			System.out.println("Please enter the message to send: ");												// asks user to input message.
+			message = textScanner.nextLine();																		// reads in a line of text.
+			outgoingMessage.payload = message;																				// sets the Message payload variable to the read string.
 			System.out.println("Message to be sent is: \"" + message + "\"");										// repeat the message to us.
 			System.out.println("Sending message...");																// tell us that it's being sent.
 			clientMessage.println(message);																			// send the message.
