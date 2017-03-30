@@ -8,7 +8,7 @@
 	http://docs.oracle.com/javase/tutorial/networking/sockets/examples/EchoClient.java
 */
 
-package MessageTest;															// package declaration.
+//package MessageTest;															// package declaration.
 
 /* import block begins */
 import java.io.*;																// import all of java's IO functions.
@@ -39,6 +39,7 @@ public class EchoClient
 		int DHBase = 2; 
 		int DHNumber = 3;
 		Message outgoingMessage = new Message(payload, DHModulus, DHBase, DHNumber);																			// creates a Message object.
+		Message incomingMessage = new Message(payload, DHModulus, DHBase, DHNumber);																			// creates a Message object.
 		Scanner textScanner = new Scanner(System.in);																// creates a scanner object to read text input from the command line.
 		/* variable declaration block ends */
 		
@@ -53,13 +54,14 @@ public class EchoClient
 			System.out.println("Connected to " + server_IP + " on port " + serverPort);								// tell us we've connected.
 			System.out.println("Please enter the message to send: ");												// asks user to input message.
 			message = textScanner.nextLine();																		// reads in a line of text.
-			outgoingMessage.payload = message;																				// sets the Message payload variable to the read string.
+			outgoingMessage.payload = message;																		// sets the Message payload variable to the read string.
 			System.out.println("Message to be sent is: \"" + message + "\"");										// repeat the message to us.
 			System.out.println("Sending message...");																// tell us that it's being sent.
-			clientMessage.println(message);																			// send the message.
+			clientMessage.println(outgoingMessage);																	// send the message.
 		
-			reply = serverReply.readLine();																			// get the server's reply.
-			System.out.println("Server replied! Message is: \"" + message + "\"");									// tell us we've got it and print.
+			incomingMessage.payload = serverReply.readLine();														// get the server's reply.
+			reply = incomingMessage.payload.toString();	
+			System.out.println("Server replied! Message is: \"" + reply + "\"");									// tell us we've got it and print.
 			
 			clientMessage.close();																					// close the outward stream.
 			serverReply.close();																					// close the inward stream.

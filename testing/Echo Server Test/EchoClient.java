@@ -27,8 +27,8 @@ public class EchoClient
 		/* usage checking ends */
 		
 		/* variable declaration block begins */
-		String server_IP = args[1];																					// take the IP from the args.
-		String message = args[0];																					// take message from args.
+		String server_IP = args[0];																					// take the IP from the args.
+		String message = args[1];																					// take message from args.
 		String reply;																								// declare reply string, left blank here.
 		int serverPort = 12345;																						// port is same as server.
 		/* variable declaration block ends */
@@ -47,7 +47,7 @@ public class EchoClient
 			clientMessage.println(message);																			// send the message.
 		
 			reply = serverReply.readLine();																			// get the server's reply.
-			System.out.println("Server replied! Message is: \"" + message + "\"");									// tell us we've got it and print.
+			System.out.println("Server replied! Message is: \"" + reply + "\"");									// tell us we've got it and print.
 			
 			clientMessage.close();																					// close the outward stream.
 			serverReply.close();																					// close the inward stream.

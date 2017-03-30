@@ -4,7 +4,7 @@
 		A basic message object to simplify passing information between endpoints.
 
  */
-package MessageTest;															// package declaration.
+//package MessageTest;															// package declaration.
 
 public class Message
 {
