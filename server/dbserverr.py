@@ -32,36 +32,3 @@ while True:
 	try:
 		print (connection_message, client_address)			# let us know a connection was made.
 		message = connection.recv(message_size)
-		userID = message.userID
-		make accountArray of incoming account names
-		make tupleArray of account name/IP tuples
-		cursor = mysql.connect().cursor()
-		cursor.execute("UPDATE UserTable SET '" + client_address + "WHERE userID= " + message.userID)	
-		
-		while control > numberOfQueries:
-			cursor.execute("SELECT " + ipAddress + " FROM UserTable WHERE " + username = accountArray[control])
-			data = cursor.fetchone()
-			tupleArray[control] = accountArray[control] + data
-			control++
-			break
-		returnMessage = tupleArray
-		connection.sendall(returnMessage)
-		connection.close()							# clean up the connection.
-		
-		#while True:
-		#	message = connection.recv(message_size)			# message is the data received.
-		#	print('Recieved message: ', message, )			# print the message.
-		#	if message:
-			# if there is a message to print...
-		#		print('Echoing message.')			# ...tell us and...
-		#		connection.sendall(message)			# ...echo it back.
-		#	else:
-			#otherwise...
-
-		#		print(EOS_message, client_address)		# ...tell us that and...
-		#		print('Listening again.')			# ...let us know it's listening again and then...
-		#		break						# ...exit.
-
-	#finally:
-	#	connection.close()							# clean up the connection.
-

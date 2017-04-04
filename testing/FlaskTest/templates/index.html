@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Account Creation</title>
+
+   
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+    <link href="../static/css/signup.css" rel="stylesheet">
+   
+  </head>
+
+  <body>	
+
+    <div class="container">
+      <div class="header">
+      	<h3 class="text-muted">Create Account</h3>
+      </div>
+
+      <div class="jumbotron">
+        <h2>Tinfoil cHat Account Creation</h2>
+        <p align=center>Public Keyfile 
+        <img src="./static/images/siren.gif">WARNING! do NOT upload private keys!<img src="./static/images/siren.gif">
+        </p>
+        <form action="/action_page.php" method = "post" id="signup_form">
+        	<label for="inputPublicKey" class="sr-only">Public Keyfile (WARNING! do NOT upload private keys!)</label>
+        	<input type="file" name="inputPublicKey" id="inputPassword" class="form-control" accept=".pem" placeholder="Public Keyfile" required>
+        	<br><br>
+           	<button id="btnSignUp" class="btn btn-lg btn-primary btn-block" type="submit" form="signup_form">Sign up</button>
+      	</form>
+      </div>
+
+      
+
+      <footer class="footer">
+        <p>&copy; Tinfoil Industries International 2017 - <img src="./static/images/shrug.gif"></p>
+      </footer>
+
+    </div>
+  </body>
+</html>
